@@ -2,12 +2,17 @@ package beans;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
 
-@Setter
 @Getter
+@Component
+@Setter
 public class Person {
+    private String name = "Ella";
+    private final Parrot parrot;
 
-    private String name;
-    private Parrot parrot;
+    public Person(Parrot parrot2) {
+        this.parrot = parrot2;
+    }
 
 }
