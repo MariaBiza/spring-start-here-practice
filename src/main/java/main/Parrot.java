@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Setter
 @Getter
+@Component
 public class Parrot {
     private String name;
 }
