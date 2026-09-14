@@ -1,12 +1,14 @@
-package main;
+package beans;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 @Setter
 @Getter
+@Component
 public class Parrot {
-    private String name;
+    private String name = "Koko";
 
     public Parrot() {
         System.out.println("Parrot created!");
