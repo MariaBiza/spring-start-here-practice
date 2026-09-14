@@ -1,5 +1,6 @@
 package main;
 
+import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
@@ -9,4 +10,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class Parrot {
     private String name;
+
+    @PostConstruct
+    public void init() {
+        this.name = "Kiki";
+    }
 }

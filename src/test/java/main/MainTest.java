@@ -14,6 +14,6 @@ public class MainTest {
     public void getParrotName_Success() {
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
         Parrot parrot = context.getBean(Parrot.class);
-        Assert.assertNull(parrot.getName());
+        Assert.assertEquals("Kiki", parrot.getName());
     }
 }
