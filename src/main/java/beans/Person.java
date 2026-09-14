@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Getter
+@Setter
 @Component
 public class Person {
-    @Setter
     private String name = "Ella";
-    private Parrot parrot;
+    private final Parrot parrot;
 
     @Autowired
-    public void setParrot(Parrot parrot) {
+    public Person(Parrot parrot) {
         this.parrot = parrot;
     }
 }
