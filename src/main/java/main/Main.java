@@ -1,17 +1,20 @@
 package main;
 
-import beans.Person;
-import config.ProjectConfig;
+import main.config.ProjectConfiguration;
+import main.model.Comment;
+import main.services.CommentService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
 
     public static void main(String[] args) {
-        var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
+        var context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
 
-        Person p = context.getBean(Person.class);
+        var comment = new Comment();
+        comment.setAuthor("Maria");
+        comment.setText("Demo comment");
 
-        System.out.println("Person's name: " + p.getName());
-        System.out.println("Person's parrot: " + p.getParrot());
+        var commentService = context.getBean(CommentService.class);
+        commentService.publishComment(comment);
     }
 }
