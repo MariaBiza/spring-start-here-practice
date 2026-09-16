@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class CommentService {
 
-    public void publishComment(Comment comment) {
+    public String publishComment(Comment comment) {
         log.info("Publish comment: {}", comment.getText());
+        return "SUCCESS";
     }
 }
