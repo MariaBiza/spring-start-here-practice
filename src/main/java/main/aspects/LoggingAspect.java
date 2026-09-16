@@ -12,7 +12,7 @@ import java.util.Arrays;
 @Slf4j
 public class LoggingAspect {
 
-    @Around("execution(* main.services.*.*(..))")
+    @Around("@annotation(ToLog)")
     public Object log(ProceedingJoinPoint joinPoint) throws Throwable {
         String methodName = joinPoint.getSignature().getName();
         Object[] arguments = joinPoint.getArgs();
