@@ -1,22 +1,11 @@
 package main;
 
-import lombok.extern.slf4j.Slf4j;
-import main.config.ProjectConfiguration;
-import main.model.Comment;
-import main.services.CommentService;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@Slf4j
+@SpringBootApplication
 public class Main {
-
     public static void main(String[] args) {
-        var context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
-
-        var service = context.getBean(CommentService.class);
-        var comment = new Comment();
-        comment.setAuthor("Maria");
-        comment.setText("Demo comment");
-
-        service.deleteComment(comment);
+        SpringApplication.run(Main.class, args);
     }
 }
