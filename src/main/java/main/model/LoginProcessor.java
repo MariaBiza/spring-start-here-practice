@@ -3,6 +3,7 @@ package main.model;
 import lombok.Getter;
 import lombok.Setter;
 import main.service.LoggedUserManagementService;
+import main.service.LoginCountService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
@@ -12,14 +13,19 @@ import org.springframework.web.context.annotation.RequestScope;
 @Setter
 public class LoginProcessor {
     private final LoggedUserManagementService loggedUserManagementService;
+    private final LoginCountService loginCountService;
     private String username;
     private String password;
 
-    public LoginProcessor(LoggedUserManagementService loggedUserManagementService) {
+    public LoginProcessor(LoggedUserManagementService loggedUserManagementService,
+                          LoginCountService loginCountService) {
         this.loggedUserManagementService = loggedUserManagementService;
+        this.loginCountService = loginCountService;
     }
 
     public boolean login() {
+        loginCountService.increment();
+
         String username = this.getUsername();
         String password = this.getPassword();
 
