@@ -20,7 +20,7 @@ public class TransferService {
     @Transactional
     public void transferMoney(long idSender, long idReceiver, BigDecimal amount){
         Account sender = accountRepository.findById(idSender).orElseThrow(AccountNotFoundException::new);
-        Account receiver = accountRepository.findById(idReceiver).orElseThrow(AccountNotFoundException::new);;
+        Account receiver = accountRepository.findById(idReceiver).orElseThrow(AccountNotFoundException::new);
 
         BigDecimal senderNewAmount = sender.getAmount().subtract(amount);
         BigDecimal receiverNewAmount = receiver.getAmount().add(amount);
